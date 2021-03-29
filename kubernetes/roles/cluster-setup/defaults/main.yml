@@ -1,0 +1,16 @@
+---
+# Default variable
+AWS_PROFILE: kops
+AWS_REGION: us-east-1
+NAME: jiachenyu.me
+KOPS_STATE_STORE: "s3://jiachenyu.me"
+COMPUTE_NODE_SIZE: t2.medium
+MASTER_NODE_SIZE: t2.medium
+VERSION: 1.19.0
+NODE_COUNT: 3
+DNS_ZONE: jiachenyu.me
+SSH_KEY: /home/yujiache/.ssh/aws_ami.pub
+
+# Internal variable
+availability_zones: []
+zones_string: ""

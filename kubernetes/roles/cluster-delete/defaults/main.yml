@@ -1,0 +1,4 @@
+---
+NAME: jiachenyu.me
+AWS_PROFILE: kops
+KOPS_STATE_STORE: "s3://jiachenyu.me"
