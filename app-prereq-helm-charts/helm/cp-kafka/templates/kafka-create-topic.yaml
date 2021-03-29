@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kafka-create-topic-deployment
+  namespace: default
+spec:
+  containers:
+  - name: kafka-topic-creator
+    image: weisiminpeng/kafka_topics_create:4.0
+    imagePullPolicy: Always
+    env:          
+      - name: "ZOOKEEPER_HOSTS"
+        value: "a6-cp-zookeeper:2181"
+      - name: "KAFKA_TOPICS"
+        value: "watch weather"
+  restartPolicy: Never
