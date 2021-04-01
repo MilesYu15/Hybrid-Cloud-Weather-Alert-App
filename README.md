@@ -38,7 +38,16 @@ The `GKE` directory contains the Terraform modules to set up a Google Kubernetes
 
 The `AKS` directory contains the Terraform modules to set up a Azure Kubernetes Service on Microsoft Azure, which includes networking components and Azure Database for MySQL.
 
+### Back End Application
 
+The back-end application is a headless NodeJS server. The backend handles the business logic related to user and weather alert management. Upon creating, updating or deleting weather alerts, events are created and sent down the Kafka topics for poller and notifier to process. 
 
+Access is restricted only to registered and authenticated users. Each user can only modity their only alerts. To accomplish this, after a user is authenticated, the client will receive JWT token which it should then use when making REST API calls. 
 
+### Poller
 
+Poller is a microservice in charge of polling weather data from NOAA website. Poller has its own database to store the locations of which weather data needs to be polled. Poller is event-driven and updates its database based on the events it receives from the Kafka topic. Weather data is polled periodically and sent down another Kafka topic for notifier to process.
+
+### Notifier
+
+Notifier is a microservice in charge of sending out weather alerts. Notifier has its own database to keep track of the alerts that have already been sent out. Notifier is also event-driven and determines if alerts should be sent based on the weather data from the Kafka topic.

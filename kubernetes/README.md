@@ -1,9 +1,5 @@
 # kubernetes
 
-## Team Members  
-Weisimin Peng 001057546  
-Jiachen Yu 001050114    
-
 <!-- Usage -->
 ## Usage
 Set up the Kubernetes cluster on AWS
@@ -39,9 +35,4 @@ k8s_request_vpc_name=k8s.prod.weisiminpeng.com" -vv
 SSH into Bastion node
 ```sh
 ssh -A admin@`aws elb --output=table describe-load-balancers|grep DNSName.\*bastion|awk '{print $4}'`
-```
-
-SSH into other nodes from Bastion node
-```sh
-ssh admin@ip-172-20-53-10.ec2.internal
 ```

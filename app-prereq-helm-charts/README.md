@@ -1,9 +1,5 @@
 # app-prereq-helm-charts
 
-## Team Members  
-Weisimin Peng 001057546  
-Jiachen Yu 001050114    
-
 <!-- Usage -->
 ## Kafka Usage
 
